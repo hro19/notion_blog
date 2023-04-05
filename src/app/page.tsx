@@ -41,7 +41,7 @@ export default function Home() {
           priority
         />
         <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
+          NExt.js V13
         </div>
       </div>
 
