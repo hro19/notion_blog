@@ -3,7 +3,7 @@
 First, run the development server:
 
 ```bash
-npx create-next-app プロジェクト名
+npx create-next-app PROJECT_NAME
 
 npm run dev
 ```
