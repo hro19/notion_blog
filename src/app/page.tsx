@@ -30,7 +30,9 @@ export default function Home() {
           </a>
         </div>
       </div>
-
+      <h2 className="text-3xl font-bold text-lime-600">
+        Hello world!
+      </h2>
       <div className={styles.center}>
         vercel表示
         <div className={styles.thirteen}>
