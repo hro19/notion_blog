@@ -36,7 +36,7 @@ export default function Home({allPosts}) {
             >
               <img
                 className="w-full h-48 object-cover"
-                src="https://placehold.jp/3d4070/ffffff/350x150.png"
+                src={card.thumbnail}
                 alt={card.title}
               />
               <div className="p-4">

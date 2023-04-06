@@ -34,5 +34,6 @@ const getPageMetaData = (post) => {
     date: post.properties.Date.date.start,
     slug: post.properties.Slug.rich_text[0].plain_text,
     tags: getTags(post.properties.Tags.multi_select),
+    thumbnail: post.properties.Thumbnail.files[0].file.url,
   };
 };
