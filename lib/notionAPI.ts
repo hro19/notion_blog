@@ -1,12 +1,12 @@
 import { Client } from "@notionhq/client";
 
 const notion = new Client({
-  auth: process.env.NOTION_TOKEN,
+  auth: "secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM",
 });
 
 export const getAllPosts = async () => {
   const posts = await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
+    database_id: "9d06b4f4ca7e4651a96b3f4d3e9405a7",
     page_size: 100,
   });
 
@@ -30,7 +30,7 @@ const getPageMetaData = (post) => {
   return {
     id: post.id,
     title: post.properties.Title.title[0].plain_text,
-    description: post.properties.Description.rich_text[0].plain_text,
+    // description: post.properties.Description.rich_text[0].plain_text,
     date: post.properties.Date.date.start,
     slug: post.properties.Slug.rich_text[0].plain_text,
     tags: getTags(post.properties.Tags.multi_select),
