@@ -49,13 +49,7 @@ export default function Home() {
             priority
           />
           <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
+            表示確認
           </div>
         </div>
 
