@@ -1,4 +1,4 @@
-import { Client } from "@notionhq/client";
+import { Client, Post } from "@notionhq/client";
 
 const notion = new Client({
   auth: "secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM",
