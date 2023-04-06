@@ -10,6 +10,12 @@ export const getAllPosts = async () => {
   const posts = await notion.databases.query({
     database_id: database_id,
     page_size: 100,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
   });
 
   const allPosts = posts.results;
