@@ -7,11 +7,6 @@ const notion = new Client({
 export const getAllPosts = async () => {
   const database_id: string = "9d06b4f4ca7e4651a96b3f4d3e9405a7";
 
-  if (!database_id) {
-    console.error("Database ID is undefined");
-    return;
-  }
-
   const posts = await notion.databases.query({
     database_id: database_id,
     page_size: 100,
