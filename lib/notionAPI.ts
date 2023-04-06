@@ -20,7 +20,7 @@ export const getAllPosts = async () => {
   })
 };
 
-const getPageMetaData = (post: any) => {
+const getPageMetaData = (post: Post) => {
   const getTags = (tags: any) => {
     const allTags = tags.map((tag: any) => {
       return tag.name;
