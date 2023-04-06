@@ -23,12 +23,12 @@ export default function Home({allPosts}: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="container mx-auto py-4">
-          <h2 className="text-3xl font-bold text-amber-400 md:text-emerald-600 text-center">
+      <main>
+          <h2 className="text-3xl font-bold underline text-amber-400 md:text-emerald-600">
             Hello world!
         </h2>
         
-        <div className="px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {allPosts.map((card: any) => (
             <div
               key={card.id}
