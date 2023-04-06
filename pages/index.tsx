@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-export default function Home({allPosts}) {
+export default function Home({allPosts}: any) {
   console.log(allPosts);
   return (
     <>
@@ -29,7 +29,7 @@ export default function Home({allPosts}) {
         </h2>
         
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-          {allPosts.map((card) => (
+          {allPosts.map((card: any) => (
             <div
               key={card.id}
               className={` rounded-lg overflow-hidden shadow-lg`}
@@ -43,7 +43,7 @@ export default function Home({allPosts}) {
                 <h2 className="text-lg font-semibold">{card.title}</h2>
                 <p className="text-gray-600 text-sm mb-2">{card.date}</p>
                 <div className="flex flex-wrap mb-2">
-                  {card.tags.map((tag, index) => (
+                  {card.tags.map((tag: any, index: any) => (
                     <span
                       key={index}
                       className="bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full mr-2 mb-2"

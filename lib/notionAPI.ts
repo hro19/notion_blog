@@ -1,4 +1,4 @@
-import { Client, Post } from "@notionhq/client";
+import { Client } from "@notionhq/client";
 
 const notion = new Client({
   auth: "secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM",
@@ -21,8 +21,8 @@ export const getAllPosts = async () => {
 };
 
 const getPageMetaData = (post: Post) => {
-  const getTags = (tags) => {
-    const allTags = tags.map((tag) => {
+  const getTags = (tags: any) => {
+    const allTags = tags.map((tag: any) => {
       return tag.name;
     });
 
