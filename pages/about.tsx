@@ -35,8 +35,8 @@ export default function About() {
               <div className="w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-yellow-600 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]"><p className="underline">下線を引く</p></div>
           </div>
         </div>
-            {users.map((user :User) => (
-              <div>
+            {users.map((user :User, index:number) => (
+              <div key={index}>
                 {`名前は、${ user.name }と申し、${ user.age }歳でございます。`}
               </div>
             ))}
