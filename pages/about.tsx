@@ -7,7 +7,7 @@ export default function About() {
     name: string;
     age: number;
   }
-  const [users, setUsers] = useState([{ name: "yamashi", age: 34 },{ name: "adachi", age: 46 }]);
+  const [users, setUsers] = useState<User[]>([{ name: "yamashi", age: 34 },{ name: "adachi", age: 46 }]);
 
 
   return (
