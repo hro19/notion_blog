@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from 'next/image';
 import AboutTitle from "../components/AboutTitle";
 
 export default function About() {
@@ -20,8 +21,16 @@ export default function About() {
           <div className="bg-orange-500 sm:w-[calc(50%_-_10px)] px-4">bbb<br />bbb<br />bbb</div>
         </div>
 
-        <div className="grid place-items-center h-60 bg-blue-200 mb-[40px]">
-            <img src="https://placehold.jp/3d4070/ffffff/150x90.png" />
+          <div className="relative grid place-items-center h-60 bg-blue-200 mb-[40px]">
+            <i className="relative w-[180px] h-[120px]">
+          <Image
+            className="object-contain"
+            src="https://placehold.jp/3d4070/ffffff/150x90.png"
+            alt="プレイス画像"
+            className="object-contain"
+            fill
+          />
+          </i>
         </div>
         
         <div className="container mx-auto">

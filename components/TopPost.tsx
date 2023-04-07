@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
@@ -16,12 +17,15 @@ const TopPost = (props: Props) => {
           <Link href={`/post/${slug}`} className="rounded-lg overflow-hidden shadow-2xl hover:shadow-lg hover:translate-y-1 transition-all duration-300 text-sky-600">
             <div
               key={id}
-            >
-              <img
-                className="w-full h-48 object-cover"
-                src={thumbnail}
-                alt={title}
-              />
+      >
+            <div className="relative w-full h-[120px] md:h-[192px]">
+            <Image
+              className="w-full h-48 object-cover"
+              src={thumbnail}
+              alt={title}
+              fill
+            />
+            </div>
               <div className="p-4">
                 <h2 className="text-lg font-semibold">{title}</h2>
                 <p className="text-gray-600 text-sm mb-2">{date}</p>
