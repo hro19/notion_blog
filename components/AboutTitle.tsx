@@ -1,12 +1,8 @@
 const AboutTitle = () => {
   return (
           <div>
-            <h3>アバウトコンポーネントのタイトル</h3>
-            <a href="#">こちらはコンポーネントのりんくです</a>
-            <p>dfasdfsaffdsfsdfsds111111111111111111</p>
-            <hr />
+            <h1 className="text-3xl font-bold text-green-500 py-3 text-center">tailwindの練習pページ</h1>
           </div>
-
   );
 };
 
