@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import Head from 'next/head';
 import { getAllPosts } from "../lib/notionAPI";
-import TopPost from "../components/topPost";
+import TopPost from "../components/TopPost";
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPosts = await getAllPosts();
@@ -15,7 +15,7 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 export default function Home({allPosts}: any) {
-  console.log(allPosts);
+  //console.log(allPosts);
   return (
     <>
       <Head>
@@ -25,13 +25,13 @@ export default function Home({allPosts}: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto py-4">
-          <h2 className="text-3xl font-bold text-amber-400 md:text-emerald-600 text-center">
+          <h2 className="text-3xl font-bold text-amber-400 md:text-emerald-600 text-center mb-4">
             ブログ記事🐰
         </h2>
         
         <div className="px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
           {allPosts.map((card: any) => (
-            <TopPost card={card} key={card.id} />
+            <TopPost id={card.id} title={card.title} date={card.date} tags={card.tags} slug={card.slug} thumbnail={card.thumbnail} key={card.id} />
           ))}
         </div>
       </main>
