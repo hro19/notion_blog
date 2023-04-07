@@ -1,10 +1,19 @@
+import { useState } from "react";
 import AboutTitle from "../components/AboutTitle";
 
 export default function About() {
 
+  type User = {
+    name: string;
+    age: number;
+  }
+  const [users, setUsers] = useState([{ name: "yamashi", age: 34 },{ name: "adachi", age: 46 }]);
+
+
   return (
     <>
-      <main className="container mx-auto py-4">
+      <main>
+        <div className="container mx-auto py-4">
         <AboutTitle />
         <div className="container mx-auto sm:flex sm:justify-between">
           <div className="bg-red-800 sm:w-[calc(50%_-_10px)] px-4">aaaaa</div>
@@ -26,7 +35,13 @@ export default function About() {
               <div className="w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-yellow-600 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]"><p className="underline">下線を引く</p></div>
           </div>
         </div>
+            {users.map((user :User) => (
+              <div>
+                {`名前は、${ user.name }と申し、${ user.age }歳でございます。`}
+              </div>
+            ))}
+        </div>
       </main>
     </>
-  );
-};
+  )
+}
