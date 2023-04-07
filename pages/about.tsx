@@ -27,7 +27,6 @@ export default function About() {
             className="object-contain"
             src="https://placehold.jp/3d4070/ffffff/150x90.png"
             alt="プレイス画像"
-            className="object-contain"
             fill
           />
           </i>
