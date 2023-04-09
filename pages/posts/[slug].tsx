@@ -48,7 +48,7 @@ const Post = ({ post }: any) => {
         </p>
       ))}
       <div className='content'>
-        <ReactMarkdown children={post.markdown}></ReactMarkdown>
+        <ReactMarkdown>{post.markdown}</ReactMarkdown>
       </div>
     </div>
   );
