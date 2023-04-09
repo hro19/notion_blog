@@ -1,9 +1,11 @@
 import { Client } from '@notionhq/client';
+import { NotionToMarkdown } from 'notion-to-md';
 
 const notion = new Client({
   auth: 'secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM',
 });
 const database_id: string = '9d06b4f4ca7e4651a96b3f4d3e9405a7';
+const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getAllPosts = async () => {
   const posts = await notion.databases.query({
@@ -61,7 +63,13 @@ export const getSinglePost = async (slug: string) => {
   const page = response.results[0];
   // console.log(page);
   const metadata = getPageMetaData(page);
-  console.log(metadata);
+  // console.log(metadata);
+  const mdBlocks = await n2m.pageToMarkdown(page.id);
+  const mdString = n2m.toMarkdownString(mdBlocks);
+  console.log(mdString);
 
-  return metadata;
+  return {
+    metadata,
+    markdown: mdString,
+  };
 };

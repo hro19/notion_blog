@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
 import { getAllPosts, getSinglePost } from '@/lib/notionAPI';
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 
 //https:zenn.dev/yumiyoshi/scraps/f6220f26263103
 //getStaticPathsはサーバーサイドでビルド時にレンダリングする必要のあるパスのリストを生成する
@@ -32,14 +33,13 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 };
 
 const Post = ({ post }: any) => {
-  console.log(post);
   return (
     <div className='container mx-auto my-2 sm:my-4'>
-      <h2 className='text-2xl font-medium'>{post.title}</h2>
+      <h2 className='text-2xl font-medium'>{post.metadata.title}</h2>
       <i className='border-b-2 w-1/3 mt-1 border-sky-900'></i>
-      <span className='text-gray-500'>投稿日：{post.date}</span>
+      <span className='text-gray-500'>投稿日：{post.metadata.date}</span>
       <br />
-      {post.tags.map((tag: string, index: number) => (
+      {post.metadata.tags.map((tag: string, index: number) => (
         <p
           key={index}
           className='text-white bg-sky-900 rounded-xl font-medium mt-2 px-2 inline-block mr-1'
@@ -47,8 +47,8 @@ const Post = ({ post }: any) => {
           {tag}
         </p>
       ))}
-      <div className='mt-10 font-medium'>
-        文章コンテンツコンテンツコンテンツ コンテンツ コンテンツ コンテンツ
+      <div className='content'>
+        <ReactMarkdown children={post.markdown}></ReactMarkdown>
       </div>
     </div>
   );
