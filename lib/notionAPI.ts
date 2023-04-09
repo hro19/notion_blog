@@ -1,19 +1,18 @@
-import { Client } from "@notionhq/client";
+import { Client } from '@notionhq/client';
 
 const notion = new Client({
-  auth: "secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM",
+  auth: 'secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM',
 });
+const database_id: string = '9d06b4f4ca7e4651a96b3f4d3e9405a7';
 
 export const getAllPosts = async () => {
-  const database_id: string = "9d06b4f4ca7e4651a96b3f4d3e9405a7";
-
   const posts = await notion.databases.query({
     database_id: database_id,
     page_size: 100,
     sorts: [
       {
-        property: "Date",
-        direction: "descending",
+        property: 'Date',
+        direction: 'descending',
       },
     ],
   });
@@ -21,9 +20,9 @@ export const getAllPosts = async () => {
   const allPosts = posts.results;
 
   // return allPosts;
-  return allPosts.map((post)=> {
+  return allPosts.map((post) => {
     return getPageMetaData(post);
-  })
+  });
 };
 
 const getPageMetaData = (post: any) => {
@@ -44,4 +43,25 @@ const getPageMetaData = (post: any) => {
     tags: getTags(post.properties.Tags.multi_select),
     thumbnail: post.properties.Thumbnail.files[0].file.url,
   };
+};
+
+export const getSinglePost = async (slug: string) => {
+  const response = await notion.databases.query({
+    database_id: database_id,
+    filter: {
+      property: 'Slug',
+      formula: {
+        string: {
+          equals: slug,
+        },
+      },
+    },
+  });
+
+  const page = response.results[0];
+  // console.log(page);
+  const metadata = getPageMetaData(page);
+  console.log(metadata);
+
+  return metadata;
 };
