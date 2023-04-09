@@ -100,6 +100,44 @@ export default function About() {
             </div>
           </div>
         </div>
+        <div className='flex items-center justify-center -space-x-2 mt-6'>
+          <div className='h-10 w-10'>
+            <img
+              className='h-full w-full rounded-full object-cover object-center ring ring-white'
+              src='https://images.unsplash.com/photo-1645378999013-95abebf5f3c1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+            />
+          </div>
+          <div className='h-10 w-10'>
+            <img
+              className='h-full w-full rounded-full object-cover object-center ring ring-white'
+              src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+            />
+          </div>
+          <div className='h-10 w-10'>
+            <img
+              className='h-full w-full rounded-full object-cover object-center ring ring-white'
+              src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+            />
+          </div>
+          <div className='h-10 w-10'>
+            <img
+              className='h-full w-full rounded-full object-cover object-center ring ring-white'
+              src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+            />
+          </div>
+          <div className='h-10 w-10'>
+            <img
+              className='h-full w-full rounded-full object-cover object-center ring ring-white'
+              src='https://launchcart.jp/admin/wp-content/uploads/2020/01/js.png'
+            />
+          </div>
+          <div className='h-10 w-10'>
+            <img
+              className='h-full w-full rounded-full object-cover object-center ring ring-white'
+              src='https://cdn.pixabay.com/photo/2017/08/05/11/16/logo-2582748_960_720.png'
+            />
+          </div>
+        </div>
       </main>
     </>
   );
