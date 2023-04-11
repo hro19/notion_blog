@@ -73,3 +73,12 @@ export const getSinglePost = async (slug: string) => {
     markdown: mdString,
   };
 };
+
+export const getPostsByTag = async (tagName: string | undefined) => {
+  const allPosts = await getAllPosts();
+  const posts = allPosts.filter((post) =>
+    post.tags.find((tag: string) => tag === tagName)
+  );
+
+  return posts;
+};

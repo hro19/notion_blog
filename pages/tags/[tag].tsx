@@ -1,6 +1,6 @@
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getAllPosts } from '../../lib/notionAPI';
+import { getPostsByTag } from '../../lib/notionAPI';
 import TopPost from '../../components/TopPost';
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -12,24 +12,26 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = await getAllPosts();
+export const getStaticProps: GetStaticProps = async (context) => {
+  const currentTag: string | undefined = context.params?.tag?.toString();
+
+  const allPostsByTag = await getPostsByTag(currentTag);
 
   return {
     props: {
-      allPosts,
+      allPostsByTag,
     },
     revalidate: 10,
   };
 };
 
-export default function PostsByTag({ allPosts }: any) {
-  // console.log(allPosts);
+export default function PostsByTag({ allPostsByTag }: any) {
+  // console.log(allPostsByTag);
   return (
     <>
       <main className='container mx-auto py-4'>
         <div className='px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
-          {allPosts.map((card: any) => (
+          {allPostsByTag.map((card: any) => (
             <TopPost
               id={card.id}
               title={card.title}
