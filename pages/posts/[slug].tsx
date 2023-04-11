@@ -58,11 +58,12 @@ const Post = ({ post }: any) => {
               return !inline && match ? (
                 <SyntaxHighlighter
                   {...props}
-                  children={String(children).replace(/\n$/, '')}
                   style={a11yDark}
                   language={match[1]}
                   PreTag='div'
-                />
+                >
+                  {String(children).replace(/\n$/, '')}
+                </SyntaxHighlighter>
               ) : (
                 <code {...props} className={className}>
                   {children}
