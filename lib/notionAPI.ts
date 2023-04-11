@@ -82,3 +82,11 @@ export const getPostsByTag = async (tagName: string | undefined) => {
 
   return posts;
 };
+
+export const getAllTags = async () => {
+  const allPosts = await getAllPosts();
+
+  const getTags = allPosts.flatMap((post) => post.tags);
+  const setGetTags = new Set(getTags); //配列から重複する要素を取り除きオブジェクトで返す
+  return Array.from(setGetTags);
+};

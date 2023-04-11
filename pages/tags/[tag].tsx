@@ -1,13 +1,22 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { getPostsByTag } from '../../lib/notionAPI';
+import { getPostsByTag, getAllTags } from '../../lib/notionAPI';
 import TopPost from '../../components/TopPost';
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  let params = [{ params: { tag: 'tailwind' } }, { params: { tag: 'css' } }];
+export const getStaticPaths = async () => {
+  const paths = (await getAllTags()).map((tag) => {
+    return {
+      params: {
+        tag,
+      },
+    };
+  });
+  //console.log(paths);
+
+  //let params = [{ params: { tag: 'tailwind' } }, { params: { tag: 'css' } }];
 
   return {
-    paths: params,
+    paths,
     fallback: 'blocking',
   };
 };
