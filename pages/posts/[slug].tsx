@@ -1,5 +1,6 @@
 import React from 'react';
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import { getAllPosts, getSinglePost } from '@/lib/notionAPI';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -73,6 +74,9 @@ const Post = ({ post }: any) => {
           {post.markdown}
         </ReactMarkdown>
       </div>
+      <Link href='/'>
+        <span className='font-bold text-2xl text-green-700'>←ホームに戻る</span>
+      </Link>
     </div>
   );
 };
