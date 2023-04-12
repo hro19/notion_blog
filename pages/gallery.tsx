@@ -1,8 +1,14 @@
 import { useState, useEffect } from 'react';
-import Gallery from 'react-easy-image-gallery';
+// import Gallery from 'react-easy-image-gallery';
 
-export default function MyGallery() {
-  const [images, setImages] = useState([]);
+interface Image {
+  src: string;
+  width: string;
+  height: string;
+}
+
+export default function Gallery() {
+  const [images, setImages] = useState<Image[]>([]);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -15,7 +21,14 @@ export default function MyGallery() {
 
   return (
     <div>
-      <Gallery images={images} />
+      {images.map((image) => (
+        <img
+          src={image.src}
+          width={image.width}
+          height={image.height}
+          key={image.src}
+        />
+      ))}
     </div>
   );
 }
