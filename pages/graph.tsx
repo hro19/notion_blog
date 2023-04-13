@@ -8,7 +8,7 @@ export default function Graphql() {
 
   useEffect(() => {
     const client = new ApolloClient({
-      uri: 'http://test55.sakura.ne.jp/wp/graphql',
+      uri: 'https://www.wrj.jp/wp/graphql',
       cache: new InMemoryCache(),
     });
 
@@ -16,20 +16,21 @@ export default function Graphql() {
       try {
         const { data } = await client.query({
           query: gql`
-            query RailsPostQuery {
-              allRails {
+            query NewQuery {
+              blogs(first: 20) {
                 edges {
                   node {
                     title
-                    slug
                     date
+                    link
+                    id
                   }
                 }
               }
             }
           `,
         });
-        setPosts(data.allRails.edges);
+        setPosts(data.blogs.edges);
       } catch (error) {
         console.error(error);
       } finally {
@@ -44,9 +45,11 @@ export default function Graphql() {
 
   return (
     <div>
-      {posts.map(({ node }: any) => (
+      {posts.map(({ node }: any, index: number) => (
         <div key={node.id}>
-          <h2 className='text-2xl'>{node.title}</h2>
+          <h2 className='text-2xl'>
+            【{index}】{node.title}
+          </h2>
           <p>{node.date}</p>
           <Link href={`/blog/${node.slug}`} className='underline font-bold'>
             Read More
