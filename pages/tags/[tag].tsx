@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { getPostsByTag, getAllTags } from '../../lib/notionAPI';
 import TopPost from '../../components/TopPost';
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = (await getAllTags()).map((tag) => {
     return {
       params: {
