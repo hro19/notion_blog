@@ -12,7 +12,7 @@ export default function Gallery() {
 
   useEffect(() => {
     const fetchImages = async () => {
-      const res = await fetch('http://localhost:3000/api/image');
+      const res = await fetch('/api/image');
       const data = await res.json();
       setImages(data);
     };
