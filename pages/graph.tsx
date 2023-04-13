@@ -1,17 +1,21 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
 
 export default function Graphql() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    const client = new ApolloClient({
+      uri: 'http://test55.sakura.ne.jp/wp/graphql',
+      cache: new InMemoryCache(),
+    });
+
     const fetchPosts = async () => {
-      const response = await fetch('http://test55.sakura.ne.jp/wp/graphql', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          query: `
+      try {
+        const { data } = await client.query({
+          query: gql`
             query RailsPostQuery {
               allRails {
                 edges {
@@ -24,11 +28,13 @@ export default function Graphql() {
               }
             }
           `,
-        }),
-      });
-      const { data } = await response.json();
-      setPosts(data.allRails.edges);
-      setLoading(false);
+        });
+        setPosts(data.allRails.edges);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchPosts();
