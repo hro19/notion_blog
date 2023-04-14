@@ -2,9 +2,9 @@ import { Client } from '@notionhq/client';
 import { NotionToMarkdown } from 'notion-to-md';
 
 const notion = new Client({
-  auth: 'secret_MAcIXdXmRXGlCHo3NjYc3PqHT7Vl0du1GYt1Nc0KYXM',
+  auth: process.env.NOTION_TOKEN,
 });
-const database_id: string = '9d06b4f4ca7e4651a96b3f4d3e9405a7';
+const database_id = process.env.NOTION_DATABASE_ID;
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getAllPosts = async () => {
