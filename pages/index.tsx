@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next';
 
 import { getAllPosts } from '../lib/notionAPI';
 import TopPost from '../components/TopPost';
+import TopTab from '../components/TopTab';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPosts = await getAllPosts();
@@ -32,6 +33,7 @@ export default function Home({ allPosts }: any) {
             />
           ))}
         </div>
+        <TopTab />
       </main>
     </>
   );
