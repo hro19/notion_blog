@@ -4,12 +4,12 @@ import { NotionToMarkdown } from 'notion-to-md';
 const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
-const database_id = process.env.NOTION_DATABASE_ID;
+const databaseId: string = process.env.NOTION_DATABASE_ID || '';
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
 export const getAllPosts = async () => {
   const posts = await notion.databases.query({
-    database_id: database_id,
+    database_id: databaseId,
     page_size: 100,
     sorts: [
       {
@@ -49,7 +49,7 @@ const getPageMetaData = (post: any) => {
 
 export const getSinglePost = async (slug: string) => {
   const response = await notion.databases.query({
-    database_id: database_id,
+    database_id: databaseId,
     filter: {
       property: 'Slug',
       formula: {
@@ -77,7 +77,7 @@ export const getSinglePost = async (slug: string) => {
 export const getPostsByTag = async (tagName: string | undefined) => {
   const allPosts = await getAllPosts();
   const posts = allPosts.filter((post) =>
-    post.tags.find((tag: string) => tag === tagName)
+    post.tags.find((tag: string) => tag === (tagName || ''))
   );
 
   return posts;
