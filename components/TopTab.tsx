@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Tab, Tabs } from '@mui/material';
 
-const TopTab = () => {
+const TopTab = ({ allTags }: any) => {
   const [value, setValue] = useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -17,11 +17,27 @@ const TopTab = () => {
         >
           <Tab label='Tab 1' />
           <Tab label='Tab 2' />
-          <Tab label='Tab 3' />
         </Tabs>
-        {value === 0 && <Box>Tab 1 content</Box>}
-        {value === 1 && <Box>Tab 2 content</Box>}
-        {value === 2 && <Box>Tab 3 content</Box>}
+        {value === 0 && (
+          <Box>
+            {' '}
+            <div className='text-2xl'>
+              <ul>
+                {allTags.map((tag: string) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+            </div>
+          </Box>
+        )}
+        {value === 1 && (
+          <Box>
+            <div>
+              <h2>こんちわ。</h2>
+              <p>プロテクトプロテクト</p>
+            </div>
+          </Box>
+        )}
       </Box>
     </>
   );

@@ -1,27 +1,41 @@
 import { GetStaticProps } from 'next';
-
-import { getAllPosts } from '../lib/notionAPI';
+import { getAllPosts, getAllTags } from '../lib/notionAPI';
 import TopPost from '../components/TopPost';
 import TopTab from '../components/TopTab';
 
-export const getStaticProps: GetStaticProps = async () => {
+type Post = {
+  id: number;
+  title: string;
+  date: string;
+  tags: string[];
+  slug: string;
+  thumbnail: string;
+};
+
+type Props = {
+  allPosts: Post[];
+  allTags: string[];
+};
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const allPosts = await getAllPosts();
+  const allTags = await getAllTags();
 
   return {
     props: {
       allPosts,
+      allTags,
     },
     revalidate: 10,
   };
 };
 
-export default function Home({ allPosts }: any) {
-  // console.log(allPosts);
+export default function Home({ allPosts, allTags }: Props) {
   return (
     <>
       <main className='container mx-auto py-4'>
         <div className='px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
-          {allPosts.map((card: any) => (
+          {allPosts.map((card: Post) => (
             <TopPost
               id={card.id}
               title={card.title}
@@ -33,7 +47,7 @@ export default function Home({ allPosts }: any) {
             />
           ))}
         </div>
-        <TopTab />
+        <TopTab allTags={allTags} />
       </main>
     </>
   );
