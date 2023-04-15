@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Box, Tab, Tabs } from '@mui/material';
 
-const TopTab = ({ allTags }: any) => {
+type Props = {
+  allTags: string[];
+};
+
+const TopTab = ({ allTags }: Props) => {
   const [value, setValue] = useState(0);
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
