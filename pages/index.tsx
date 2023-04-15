@@ -4,7 +4,7 @@ import TopPost from '../components/TopPost';
 import TopTab from '../components/TopTab';
 
 type Post = {
-  id: number;
+  id: string;
   title: string;
   date: string;
   tags: string[];
