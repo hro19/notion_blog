@@ -34,20 +34,22 @@ export default function Home({ allPosts, allTags }: Props) {
   return (
     <>
       <main className='container mx-auto py-4'>
-        <div className='px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
-          {allPosts.map((card: Post) => (
-            <TopPost
-              id={card.id}
-              title={card.title}
-              date={card.date}
-              tags={card.tags}
-              slug={card.slug}
-              thumbnail={card.thumbnail}
-              key={card.id}
-            />
-          ))}
+        <div className='px-4 sm:px-6 lg:px-8'>
+          <TopTab allTags={allTags} />
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
+            {allPosts.map((card: Post) => (
+              <TopPost
+                id={card.id}
+                title={card.title}
+                date={card.date}
+                tags={card.tags}
+                slug={card.slug}
+                thumbnail={card.thumbnail}
+                key={card.id}
+              />
+            ))}
+          </div>
         </div>
-        <TopTab allTags={allTags} />
       </main>
     </>
   );
