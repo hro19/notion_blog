@@ -20,8 +20,8 @@ const TopTab = ({ allTags }: Props) => {
           onChange={handleChange}
           aria-label='basic tabs example'
         >
-          <Tab label='カテゴリー' />
-          <Tab label='よく見るページ' />
+          <Tab label='カテゴリー' className='font-bold' />
+          <Tab label='よく見るページ' className='font-bold' />
         </Tabs>
         {value === 0 && (
           <Box>
