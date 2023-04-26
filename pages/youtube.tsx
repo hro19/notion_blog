@@ -4,8 +4,6 @@ import YouTube from 'react-youtube';
 const youtube = () => {
   const videoId = 'CZlZgRo0bZ4';
   const opts = {
-    height: '720',
-    width: '1280',
     playerVars: {
       autoplay: 1,
       start: 3,
@@ -13,7 +11,7 @@ const youtube = () => {
   };
 
   return (
-    <div>
+    <div className='youtube-box container mx-auto my-5'>
       <YouTube videoId={videoId} opts={opts} />
     </div>
   );

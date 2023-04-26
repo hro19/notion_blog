@@ -34,3 +34,16 @@ body {
 .content p {
   margin-bottom: 15px;
 }
+
+/* youtubeエリア */
+.youtube-box {
+  background-color: #999;
+}
+
+.youtube-box iframe {
+  aspect-ratio: 16/9;
+  max-width: 980px;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
