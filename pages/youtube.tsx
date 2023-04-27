@@ -12,6 +12,7 @@ const youtube = () => {
 
   return (
     <div className='youtube-box container mx-auto my-5'>
+      <h2 className='tit_yt'>お気に入りyoutube一覧</h2>
       <YouTube videoId={videoId} opts={opts} />
     </div>
   );
