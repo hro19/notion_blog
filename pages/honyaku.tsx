@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const API_KEY = '68fddf2a-cbfe-a9a0-87bf-0269b2ebbf29:fx';
 const API_URL = 'https://api-free.deepl.com/v2/translate';
+const API_LIMIT_URL = 'https://api-free.deepl.com/v2/usage';
 
 const Honyaku = () => {
   const [inputText, setInputText] = useState(''); // inputText ステートを宣言する
   const [translatedText, setTranslatedText] = useState(''); // translatedText ステートを宣言する
+  const [apiLimit, setApiLimit] = useState(500000); // apiLimit ステートを宣言する
 
   const handleInputChange = (event) => {
     setInputText(event.target.value);
@@ -50,15 +52,41 @@ const Honyaku = () => {
       })
       .then((data) => {
         setTranslatedText(data.translations[0].text);
+        setApiLimit(apiLimit - data.character_count); // 翻訳に使った文字数を引いて、apiLimit を更新する
       })
       .catch((error) => {
         alert('翻訳失敗');
       });
   };
 
+  useEffect(() => {
+    const getApiLimit = () => {
+      const content = encodeURI('auth_key=' + API_KEY);
+      const url = API_LIMIT_URL + '?' + content;
+
+      fetch(url)
+        .then(function (response) {
+          if (response.ok) {
+            return response.json();
+          } else {
+            throw new Error('Could not reach the API: ' + response.statusText);
+          }
+        })
+        .then((data) => {
+          setApiLimit(data.character_count);
+        })
+        .catch((error) => {
+          alert('API制限の取得に失敗しました');
+        });
+    };
+
+    getApiLimit();
+  }, [translatedText]);
+
   return (
     <div className='p-4'>
       <h1 className='text-2xl font-bold mb-4'>翻訳ページ</h1>
+      {!isNaN(apiLimit) && `${apiLimit}文字`}（500000文字まで）
       <textarea
         id='deepl-input'
         value={inputText}
