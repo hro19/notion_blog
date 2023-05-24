@@ -27,7 +27,12 @@ const TopTab = ({ allTags }: Props) => {
           <Box>
             <div className='text-2xl'>
               {allTags.map((tag: string, index: number) => (
-                <Link href={`/tags/${tag}`} key={index} passHref>
+                <Link
+                  href={`/tags/${tag}`}
+                  key={index}
+                  passHref
+                  className='mr-1'
+                >
                   <Button
                     key={tag}
                     variant='outlined'
