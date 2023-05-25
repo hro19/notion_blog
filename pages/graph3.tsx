@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+import ImageGallery from 'react-image-gallery';
+// react-image-galleryのcssは_app.tsxにて読み込みしてます
 
 interface Post {
   id: string;
@@ -11,7 +13,7 @@ interface Post {
 }
 
 interface ImageData {
-  img: string;
+  original: string;
   thumbnail: string;
 }
 
@@ -62,11 +64,11 @@ export default function Graphql() {
     for (let i = 0; i < dlElements.length; i++) {
       const dl = dlElements[i];
       const anchorElement = dl.querySelector('a');
-      const img = anchorElement?.getAttribute('href') || '';
+      const original = anchorElement?.getAttribute('href') || '';
       const thumbnail =
         anchorElement?.querySelector('img')?.getAttribute('src') || '';
 
-      extractedDls.push({ img, thumbnail });
+      extractedDls.push({ original, thumbnail });
     }
 
     setDls(extractedDls);
@@ -85,14 +87,7 @@ export default function Graphql() {
           Read More
         </Link>
         <hr />
-
-        {/* dlsをマップして表示 */}
-        {dls.map((dl, index) => (
-          <div key={index}>
-            <img src={dl.thumbnail} alt={post?.title} />
-            <img src={dl.img} alt={post?.title} />
-          </div>
-        ))}
+        <ImageGallery items={dls} thumbnailPosition='top' />;
       </div>
     </div>
   );
