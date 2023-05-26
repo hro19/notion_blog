@@ -16,7 +16,7 @@ export default function About() {
             <AboutMenu slug={'member'} menutext={'リスト一覧'} />
           </ul>
         </div>
-        {/* ----------------------------- */}
+        <hr /> <hr />
         <div className='container mx-auto'>
           <h2
             id='grid'
@@ -59,7 +59,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/* ----------------------------- */}
+        <hr /> <hr />
         <div className='container mx-auto py-4'>
           <h2
             id='xy_center'
@@ -79,7 +79,7 @@ export default function About() {
             </i>
           </div>
         </div>
-        {/* ----------------------------- */}
+        <hr /> <hr />
         <div className='container mx-auto py-4'>
           <h2
             id='flex'
@@ -128,7 +128,7 @@ export default function About() {
             </div>
           </div>
         </div>
-        {/* ----------------------------- */}
+        <hr /> <hr />
         <div className='container mx-auto'>
           <h2
             id='member'
