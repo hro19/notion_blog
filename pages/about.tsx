@@ -15,7 +15,7 @@ export default function About() {
             <AboutMenu slug={'flex'} menutext={'flex構造'} />
             <AboutMenu slug={'member'} menutext={'リスト一覧'} />
           </ul>
-        </div>
+        </div>aa
         {/* ----------------------------- */}
         <div className='container mx-auto'>
           <h2
