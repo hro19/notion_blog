@@ -61,7 +61,8 @@ export default function About() {
               </div>
             </div>
           </div>
-
+        </div>
+        <div className='container mx-auto py-4'>
           <h2
             id='xy_center'
             className='text-center text-2xl mb-3'
