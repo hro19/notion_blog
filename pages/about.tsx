@@ -8,6 +8,7 @@ export default function About() {
       <main>
         <div className='container mx-auto py-4'>
           <AboutTitle />
+          {/* -------------menu---------------- */}
           <ul className='flex justify-center gap-2 text-base'>
             <AboutMenu slug={'grid'} menutext={'grid構造'} />
             <AboutMenu slug={'xy_center'} menutext={'上下中央寄せ'} />
@@ -58,6 +59,7 @@ export default function About() {
             </div>
           </div>
         </div>
+        {/* ----------------------------- */}
         <div className='container mx-auto py-4'>
           <h2
             id='xy_center'
@@ -77,6 +79,7 @@ export default function About() {
             </i>
           </div>
         </div>
+        {/* ----------------------------- */}
         <div className='container mx-auto py-4'>
           <h2
             id='flex'
@@ -123,6 +126,7 @@ export default function About() {
             </div>
           </div>
         </div>
+        {/* ----------------------------- */}
         <div className='container mx-auto'>
           <h2
             id='member'
