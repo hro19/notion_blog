@@ -1,18 +1,8 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import AboutTitle from '../components/AboutTitle';
 import AboutMenu from '../components/AboutMenu';
 
 export default function About() {
-  type User = {
-    name: string;
-    age: number;
-  };
-  const [users, setUsers] = useState<User[]>([
-    { name: 'yamashi', age: 34 },
-    { name: 'adachi', age: 46 },
-  ]);
-
   return (
     <>
       <main>
@@ -89,12 +79,6 @@ export default function About() {
               />
             </i>
           </div>
-
-          {users.map((user: User, index: number) => (
-            <div key={index}>
-              {`名前は、${user.name}と申し、${user.age}歳でございます。`}
-            </div>
-          ))}
         </div>
         <div className='container mx-auto'>
           <h2
