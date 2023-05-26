@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import Image from 'next/image';
 import AboutTitle from '../components/AboutTitle';
 import AboutMenu from '../components/AboutMenu';
