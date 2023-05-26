@@ -18,18 +18,25 @@ export default function About() {
         <div className='container mx-auto py-4'>
           <ul className='flex justify-center gap-6 text-3xl text-cyan-700'>
             <li>
-              <a href='#syou'>松</a>
+              <a href='#flex'>flex</a>
             </li>
             <li>
-              <a href='#tiku'>竹</a>
+              <a href='#grid'>grid</a>
             </li>
             <li>
-              <a href='#bai'>メンバー一覧</a>
+              <a href='#member'>リスト一覧</a>
             </li>
           </ul>
         </div>
         <div className='container mx-auto py-4'>
           <AboutTitle />
+          <h2
+            id='flex'
+            className='text-center text-2xl mb-3'
+            style={{ scrollMarginTop: '20px' }}
+          >
+            flex構造
+          </h2>
           <div className='container mx-auto sm:flex sm:justify-between'>
             <div className='bg-red-800 sm:w-[calc(50%_-_10px)] px-4'>aaaaa</div>
             <div className='bg-orange-500 sm:w-[calc(50%_-_10px)] px-4'>
@@ -52,7 +59,7 @@ export default function About() {
             </i>
           </div>
 
-          <div id='syou' className='container mx-auto'>
+          <div className='container mx-auto'>
             <div className='flex flex-wrap sm:ml-[1.3%] ml-[1.5%]'>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-yellow-600 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
                 <p className='text-4xl'>ユーティリティとしてのサイズ</p>
@@ -83,7 +90,14 @@ export default function About() {
             </div>
           ))}
         </div>
-        <div id='tiku' className='container mx-auto'>
+        <h2
+          id='grid'
+          className='text-center text-2xl mb-3'
+          style={{ scrollMarginTop: '20px' }}
+        >
+          grid構造
+        </h2>
+        <div className='container mx-auto'>
           <div
             className='grid gap-4 sm:grid-cols-3 mx-2 sm:mx-2'
             style={{
@@ -114,11 +128,11 @@ export default function About() {
           </div>
         </div>
         <h2
-          id='bai'
-          className='text-center'
-          style={{ scrollMarginTop: '30px' }}
+          id='member'
+          className='text-center text-2xl mb-3'
+          style={{ scrollMarginTop: '20px' }}
         >
-          メンバー一覧
+          リスト一覧
         </h2>
         <div className='flex items-center justify-center -space-x-2 mt-6'>
           <div className='h-10 w-10'>
