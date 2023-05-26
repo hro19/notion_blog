@@ -15,6 +15,7 @@ export default function About() {
             <AboutMenu slug={'member'} menutext={'リスト一覧'} />
           </ul>
         </div>
+        {/* ----------------------------- */}
         <div className='container mx-auto'>
           <h2
             id='grid'
