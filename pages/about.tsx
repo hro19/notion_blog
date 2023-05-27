@@ -103,7 +103,9 @@ export default function About() {
           <div className='container mx-auto'>
             <div className='flex flex-wrap sm:ml-[1.3%] ml-[1.5%]'>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-slate-300 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
-                <p className='text-orange-400 text-3xl'>text-orange-400</p>
+                <p className='text-orange-400 text-3xl'>
+                  text-orange-400 text-3xl
+                </p>
               </div>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-slate-300 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
                 <p className='text-green-500 text-3xl'>text-green-500</p>
@@ -112,16 +114,22 @@ export default function About() {
                 <p className='text-purple-700 text-3xl'>text-purple-700</p>
               </div>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-slate-300 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
-                <p className='font-bold'>太くなります</p>
+                <p className='text-emerald-700 text-2xl'>
+                  text-emerald-700 text-2xl
+                </p>
               </div>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-slate-300 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
-                <p className='text-center'>真ん中に</p>
+                <p className='text-cyan-500 text-clip'>
+                  text-cyan-500 text-clip
+                </p>
               </div>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-slate-300 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
-                <p className='underline'>下線を引く</p>
+                <p className='text-indigo-900 text-5xl'>
+                  text-indigo-600 text-5xl
+                </p>
               </div>
               <div className='w-[calc(50%_-_2%)] mr-[2.0%] mb-[30px] bg-slate-300 sm:w-[calc(33%_-_1%)] sm:mr-[1.3%]'>
-                <p className='underline'>下線を引く</p>
+                <p className='text-rose-500 text-base'>下線を引く</p>
               </div>
             </div>
           </div>
