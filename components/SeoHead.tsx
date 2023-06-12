@@ -10,7 +10,7 @@ export type MetaTypes = {
 
 const SeoHead = ({ title, titleTemplate, description }: MetaTypes) => {
   const router = useRouter();
-  const siteUrl = 'https://notion-blog-ecru-gamma.vercel.app/';
+  const siteUrl = 'https://notion-blog-ecru-gamma.vercel.app';
   const Url = `${siteUrl}${router.asPath}`;
   const siteTitle = `${title} - ${titleTemplate}`;
   return (
