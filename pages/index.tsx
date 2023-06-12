@@ -3,22 +3,9 @@ import { getAllPosts, getAllTags } from '../lib/notionAPI';
 import SeoHead from '../components/SeoHead';
 import TopPost from '../components/TopPost';
 import TopTab from '../components/TopTab';
+import { Post, PostsProps } from '../ts/Blog';
 
-type Post = {
-  id: string;
-  title: string;
-  date: string;
-  tags: string[];
-  slug: string;
-  thumbnail: string;
-};
-
-type Props = {
-  allPosts: Post[];
-  allTags: string[];
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<PostsProps> = async () => {
   const allPosts = await getAllPosts();
   const allTags = await getAllTags();
 
@@ -31,7 +18,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   };
 };
 
-export default function Home({ allPosts, allTags }: Props) {
+export default function Home({ allPosts, allTags }: PostsProps) {
   return (
     <>
       <SeoHead
