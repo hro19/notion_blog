@@ -1,5 +1,6 @@
 import { GetStaticProps } from 'next';
 import { getAllPosts, getAllTags } from '../lib/notionAPI';
+import SeoHead from '../components/SeoHead';
 import TopPost from '../components/TopPost';
 import TopTab from '../components/TopTab';
 
@@ -33,6 +34,11 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
 export default function Home({ allPosts, allTags }: Props) {
   return (
     <>
+      <SeoHead
+        title={'Home'}
+        titleTemplate={'Hor_Web_Blog'}
+        description={'Web技術ブログ by Notion&Next.js'}
+      />
       <main className='container mx-auto py-4'>
         <div className='px-4 sm:px-6 lg:px-8'>
           <TopTab allTags={allTags} />
