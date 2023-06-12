@@ -1,10 +1,16 @@
 import Image from 'next/image';
+import SeoHead from '../components/SeoHead';
 import AboutTitle from '../components/AboutTitle';
 import AboutMenu from '../components/AboutMenu';
 
 export default function About() {
   return (
     <>
+      <SeoHead
+        title={'Tailwindラボ'}
+        titleTemplate={'Hor_Web_Blog'}
+        description={'tailwindラボ in Web技術ブログ'}
+      />
       <main>
         <div className='container mx-auto py-4'>
           <AboutTitle />
