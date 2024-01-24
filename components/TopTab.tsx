@@ -50,14 +50,14 @@ const TopTab = ({ allTags }: Props) => {
           <Box>
             <div>
               <a
-                href='https://placehold.jp/'
+                href='https://placehold.jp'
                 target='_blank'
                 className='text-blue-600 visited:text-purple-600 mx-2'
               >
                 placeholder画像
               </a>
               <a
-                href='https://placehold.jp/'
+                href='https://placehold.jp'
                 target='_blank'
                 className='text-blue-600 visited:text-purple-600 mx-2'
               >

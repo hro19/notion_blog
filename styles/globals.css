@@ -25,14 +25,17 @@ body {
 
 .content h1 {
   font-size: 36px;
+  margin-top: 40px;
 }
 
 .content h2 {
   font-size: 30px;
+  margin-top: 30px;
 }
 
 .content h3 {
-  font-size: 36px;
+  font-size: 24px;
+  margin-top: 25px;
 }
 
 .content p {
