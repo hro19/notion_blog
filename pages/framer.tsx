@@ -5,11 +5,44 @@ import Link from 'next/link';
 const framer = () => {
   return (
     <>
+      <p>
+        <Link
+          href='/animatecss'
+          className='underline mb-3 text-lg text-green-700'
+        >
+          animate.css
+        </Link>
+      </p>
+      <h2 className='inline-block mr-4'>whileInViewの試作</h2>
       <Link
-        href='/animatecss'
-        className='underline mb-3 text-lg text-green-700'
+        href='/whileinview/whileinview'
+        className='underline mb-3 mr-3 text-lg text-green-700'
       >
-        animate.css
+        その1
+      </Link>
+      <Link
+        href='/whileinview/whileinview2'
+        className='underline mb-3 mr-3 text-lg text-green-700'
+      >
+        その2
+      </Link>
+      <Link
+        href='/whileinview/whileinview3'
+        className='underline mb-3 mr-3 text-lg text-green-700'
+      >
+        その3
+      </Link>
+      <Link
+        href='/whileinview/whileinview4'
+        className='underline mb-3 mr-3 text-lg text-green-700'
+      >
+        その4
+      </Link>
+      <Link
+        href='/whileinview/whileinview5'
+        className='underline mb-3 mr-3 text-lg text-green-700'
+      >
+        その5
       </Link>
       <h2 className='font-bold from-neutral-900 text-2xl underline'>
         springお試し
