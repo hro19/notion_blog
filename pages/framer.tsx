@@ -1,12 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const framer = () => {
   return (
     <>
-      <h1 className='font-bold from-neutral-900 text-2xl underline'>
+      <Link
+        href='/animatecss'
+        className='underline mb-3 text-lg text-green-700'
+      >
+        animate.css
+      </Link>
+      <h2 className='font-bold from-neutral-900 text-2xl underline'>
         springお試し
-      </h1>
+      </h2>
       <motion.button
         initial={{ x: '-50px', opacity: '0' }}
         animate={{ x: 0, opacity: '1' }}
@@ -16,9 +23,9 @@ const framer = () => {
         springお試し
       </motion.button>
 
-      <h1 className='font-bold from-neutral-900 text-2xl underline'>
+      <h2 className='font-bold from-neutral-900 text-2xl underline'>
         オンhover
-      </h1>
+      </h2>
       <motion.button
         whileHover={{
           scale: 1.1,
