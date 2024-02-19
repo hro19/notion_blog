@@ -1,0 +1,41 @@
+.heading h1 {
+  color: #fff;
+  font-size: 2rem;
+  background-color: darkgoldenrod;
+  padding: 1rem 2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.heading h1:hover {
+  background-color: rgb(189, 155, 68);
+  transition: all 0.5s ease-in-out;
+}
+
+.heading ol {
+  list-style-type: decimal-leading-zero;
+  list-style-position: inside;
+  padding: 1rem 1.5rem;
+}
+
+.heading ol li {
+  margin-bottom: 0.5rem;
+}
+
+.content {
+  display: inline-block;
+  border: 6px double #999;
+  padding: 10px;
+  margin: 0px 0 30px 20px;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
