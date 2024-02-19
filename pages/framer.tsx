@@ -44,6 +44,32 @@ const framer = () => {
       >
         その5
       </Link>
+      <h2 className='inline-block mr-4'>awesomerevealの試作</h2>
+      <Link
+        href='/awesomereveal/awesomereveal'
+        className='underline mb-3 mr-3 text-lg text-cyan-700'
+      >
+        その1
+      </Link>
+      <Link
+        href='/awesomereveal/awesomereveal2'
+        className='underline mb-3 mr-3 text-lg text-cyan-700'
+      >
+        その2
+      </Link>
+      <h2 className='inline-block mr-4'>intersectionとanimate.cssの試作</h2>
+      <Link
+        href='/intersection/intersection'
+        className='underline mb-3 mr-3 text-lg text-orange-700'
+      >
+        その1
+      </Link>
+      <Link
+        href='/intersection/intersection2'
+        className='underline mb-3 mr-3 text-lg text-orange-700'
+      >
+        その2
+      </Link>
       <h2 className='font-bold from-neutral-900 text-2xl underline'>
         springお試し
       </h2>
