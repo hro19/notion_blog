@@ -70,6 +70,12 @@ const framer = () => {
       >
         その2
       </Link>
+      <Link
+        href='/intersection/intersection3'
+        className='underline mb-3 mr-3 text-lg text-orange-700'
+      >
+        その3(【react-intersection-observer】と【framer-motion】を組み合わせることで発火位置を調整)
+      </Link>
       <h2 className='font-bold from-neutral-900 text-2xl underline'>
         springお試し
       </h2>
