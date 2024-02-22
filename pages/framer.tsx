@@ -13,7 +13,7 @@ const framer = () => {
           animate.css
         </Link>
       </p>
-      <h2 className='inline-block mr-4'>whileInViewの試作</h2>
+      <h2 className='inline-block mr-4 text-lg font-bold'>whileInViewの試作</h2>
       <Link
         href='/whileinview/whileinview'
         className='underline mb-3 mr-3 text-lg text-green-700'
