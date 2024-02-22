@@ -55,7 +55,7 @@ const framer = () => {
         href='/awesomereveal/awesomereveal2'
         className='underline mb-3 mr-3 text-lg text-cyan-700'
       >
-        その2
+        その2(【react-awesome-reveal】と【framer-motion】を組み合わせるが、発火位置調整（rootMargin）がうまくいっていない)
       </Link>
       <h2 className='inline-block mr-4'>intersectionとanimate.cssの試作</h2>
       <Link
