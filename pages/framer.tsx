@@ -42,8 +42,9 @@ const framer = () => {
         href='/whileinview/whileinview5'
         className='underline mb-3 mr-3 text-lg text-green-700'
       >
-        その5
+        その5(whileInviewを使ってアニメを作るが、高さ位置の調整が出来ない)
       </Link>
+      <hr />
       <h2 className='inline-block mr-4'>awesomerevealの試作</h2>
       <Link
         href='/awesomereveal/awesomereveal'
@@ -57,6 +58,7 @@ const framer = () => {
       >
         その2(【react-awesome-reveal】と【framer-motion】を組み合わせるが、発火位置調整（rootMargin）がうまくいっていない)
       </Link>
+      <hr />
       <h2 className='inline-block mr-4'>intersectionとanimate.cssの試作</h2>
       <Link
         href='/intersection/intersection'
@@ -76,6 +78,7 @@ const framer = () => {
       >
         その3(【react-intersection-observer】と【framer-motion】を組み合わせることで発火位置を調整)
       </Link>
+      <hr />
       <h2 className='font-bold from-neutral-900 text-2xl underline'>
         springお試し
       </h2>
