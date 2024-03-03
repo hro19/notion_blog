@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { Box, Button, ButtonGroup } from '@yamada-ui/react';
+import { Box, Button } from '@yamada-ui/react';
 import { Tabs, Tab, TabPanel } from "@yamada-ui/react"
-import 'react-tabs/style/react-tabs.css';
 
 type Props = {
   allTags: string[];
