@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Box, Button, ButtonGroup } from '@yamada-ui/react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tabs, Tab, TabPanel } from "@yamada-ui/react"
 import 'react-tabs/style/react-tabs.css';
 
 type Props = {
@@ -12,12 +12,9 @@ const TopTab = ({ allTags }: Props) => {
   return (
     <div className='my-3'>
       <Box sx={{ width: '100%' }}>
-        <Tabs>
-          <TabList className='border-b-blue-600 border-b mb-3'>
-            <Tab>カテゴリー分け</Tab>
-            <Tab>頻出検索ページ</Tab>
-          </TabList>
-
+        <Tabs size="md">
+          <Tab>カテゴリー分け</Tab>
+          <Tab>頻出検索ページ</Tab>
           <TabPanel>
             <Box>
               <div className='text-2xl'>
