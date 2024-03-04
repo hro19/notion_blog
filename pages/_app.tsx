@@ -7,7 +7,7 @@ import { UIProvider } from '@yamada-ui/react';
 import { Noto_Sans_JP } from "next/font/google";
 
 const noto = Noto_Sans_JP({
-  weight: ["400", "500"],
+  weight: ["400", "700"],
   subsets: ["latin"],
   display: "swap",
 });
