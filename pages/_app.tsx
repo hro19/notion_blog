@@ -4,12 +4,21 @@ import Layout from '../components/Layout';
 import '../public/image-gallery.css';
 import 'animate.css';
 import { UIProvider } from '@yamada-ui/react';
+import { Noto_Sans_JP } from "next/font/google";
+
+const noto = Noto_Sans_JP({
+  weight: ["400", "500"],
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <UIProvider>
       <Layout>
-        <Component {...pageProps} />
+        <main className={noto.className}>
+          <Component {...pageProps} />
+        </main>
       </Layout>
     </UIProvider>
   );
