@@ -29,6 +29,7 @@ const TopTab = ({ allTags }: Props) => {
                       variant='outline'
                       colorScheme='link'
                       mx={'1px'}
+                      fontWeight={"light"}
                     >
                       {tag}
                     </Button>

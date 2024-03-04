@@ -30,13 +30,13 @@ const TopPost = (props: Props) => {
       </div>
       <div className='p-4'>
         <Link href={`/posts/${slug}`} passHref>
-          <h2 className='text-lg font-semibold'>{title}</h2>
-          <p className='text-gray-600 text-sm mb-2'>{date}</p>
+          <h2 className='text-lg font-medium'>{title}</h2>
+          <p className='text-gray-900 text-sm mb-2'>{date}</p>
         </Link>
         <div className='flex flex-wrap mb-2'>
           {tags.map((tag: any, index: any) => (
             <Link href={`/tags/${tag}`} key={index} passHref>
-              <span className='bg-gray-200 text-gray-700 text-xs font-semibold px-2 py-1 rounded-full mr-2 mb-2'>
+              <span className='bg-gray-200 text-slate-950 text-xs px-2 py-1 rounded-full mr-2 mb-2'>
                 {tag}
               </span>
             </Link>

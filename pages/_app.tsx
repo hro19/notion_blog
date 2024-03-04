@@ -15,11 +15,11 @@ const noto = Noto_Sans_JP({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <UIProvider>
-      <Layout>
-        <main className={noto.className}>
+      <main className={noto.className}>
+        <Layout>
           <Component {...pageProps} />
-        </main>
-      </Layout>
+        </Layout>
+      </main>
     </UIProvider>
   );
 }
