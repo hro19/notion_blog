@@ -14,7 +14,7 @@ const Navbar = () => {
         <nav className='bg-gray-200 border-gray-200'>
           <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
             <Link href='/' className='flex items-center'>
-              <span className='self-center text-2xl font-semibold whitespace-nowrap text-amber-600 md:text-emerald-600 text-center'>
+              <span className='self-center text-2xl whitespace-nowrap text-amber-600 md:text-emerald-600 text-center'>
                 技術記事🐰
               </span>
             </Link>
