@@ -29,6 +29,7 @@ const TopTab = ({ allTags }: Props) => {
                       variant='outline'
                       colorScheme='link'
                       mx={'1px'}
+                      mb={1}
                       fontWeight={"light"}
                     >
                       {tag}
@@ -40,18 +41,16 @@ const TopTab = ({ allTags }: Props) => {
           </TabPanel>
           <TabPanel>
             <Box>
-              <div>
+              <div className="[&>a]:text-blue-600 [&>a:visited]:text-purple-600 [&>a:hover]:opacity-75 [&>a:hover]:duration-700 [&>a]:mx-2">
                 <a
                   href='https://placehold.jp'
                   target='_blank'
-                  className='text-blue-600 visited:text-purple-600 mx-2'
                 >
                   placeholder画像
                 </a>
                 <a
                   href='https://placehold.jp'
                   target='_blank'
-                  className='text-blue-600 visited:text-purple-600 mx-2'
                 >
                   縦横中央揃え
                 </a>
