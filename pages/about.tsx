@@ -1,9 +1,14 @@
 import Image from 'next/image';
 import SeoHead from '../components/SeoHead';
 import AboutTitle from '../components/AboutTitle';
-import AboutMenu from '../components/AboutMenu';
 
 export default function About() {
+  const aboutMenus = [
+    { slug: 'grid', menutext: 'grid構造' },
+    { slug: 'xy_center', menutext: '上下中央寄せ' },
+    { slug: 'flex', menutext: 'flex構造' },
+    { slug: 'member', menutext: 'リスト一覧' },
+  ];
   return (
     <>
       <SeoHead
@@ -14,15 +19,19 @@ export default function About() {
       <main>
         <div className='container mx-auto py-4'>
           <AboutTitle />
-          {/* -------------menu---------------- */}
           <ul className='flex justify-center gap-2 text-base'>
-            <AboutMenu slug={'grid'} menutext={'grid構造'} />
-            <AboutMenu slug={'xy_center'} menutext={'上下中央寄せ'} />
-            <AboutMenu slug={'flex'} menutext={'flex構造'} />
-            <AboutMenu slug={'member'} menutext={'リスト一覧'} />
+            {aboutMenus.map((menu, index) => (
+              <li key={index}>
+                <a
+                  href={`#${menu.slug}`}
+                  className='bg-purple-700 text-white p-1 hover:bg-purple-500 transition duration-400'
+                >
+                  {menu.menutext}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
-        {/* ----------------------------- */}
         <div className='container mx-auto'>
           <h2
             id='grid'
@@ -197,7 +206,24 @@ export default function About() {
             </div>
           </div>
         </div>
-        <br />
+        <div className='container mx-auto mb-6'>
+          <h2
+            id='aspect'
+            className='text-center text-2xl mb-3'
+            style={{ scrollMarginTop: '20px' }}
+          >
+            【リスト一覧】
+          </h2>
+          <div className='w-48'>
+            <Image
+              src='https://placehold.jp/3d4070/ffffff/300x250.png'
+              width='300'
+              height='250'
+              alt='画像'
+              className='aspect-[9/4] object-cover object-bottom'
+            />
+          </div>
+        </div>
       </main>
     </>
   );
