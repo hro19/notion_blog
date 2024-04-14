@@ -8,6 +8,7 @@ export default function About() {
     { slug: 'xy_center', menutext: '上下中央寄せ' },
     { slug: 'flex', menutext: 'flex構造' },
     { slug: 'member', menutext: 'リスト一覧' },
+    { slug: 'aspect', menutext: 'アスペクト比' },
   ];
   return (
     <>
@@ -206,13 +207,13 @@ export default function About() {
             </div>
           </div>
         </div>
-        <div className='container mx-auto mb-6'>
+        <div className='container mx-auto my-6'>
           <h2
             id='aspect'
             className='text-center text-2xl mb-3'
             style={{ scrollMarginTop: '20px' }}
           >
-            【リスト一覧】
+            【アスペクト比】
           </h2>
           <div className='w-48'>
             <Image
