@@ -8,6 +8,18 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const globalMenus = [
+    { label: 'Home', targetBlank: false, link: '/' },
+    {
+      label: 'GSAPラボ',
+      targetBlank: true,
+      link: 'https://gsap-practice-bice.vercel.app/',
+    },
+    { label: 'Tailwindラボ', targetBlank: false, link: '/about' },
+    { label: 'Framer motionラボ', targetBlank: false, link: '/framer' },
+    { label: 'GraphQLブログ', targetBlank: false, link: '/graph' },
+  ];
+
   return (
     <>
       <header>
@@ -46,49 +58,22 @@ const Navbar = () => {
               } w-full md:block md:w-auto`}
               id='navbar-default'
             >
-              <ul className='flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-2xl bg-gray-50 
+              <ul
+                className='flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-2xl bg-gray-50 
                               md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 
-                            md:dark:bg-gray-900 dark:border-gray-700 md:py-1 md:px-6'>
-                <li>
-                  <Link
-                    href='/'
-                    className='block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500'
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/about'
-                    className='block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500'
-                  >
-                    Tailwindラボ
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href='/framer'
-                    className='block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500'
-                  >
-                    Framer motionラボ
-                  </Link>
-                </li>
-                {/* <li>
-                  <Link
-                    href='/gallery'
-                    className='block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500'
-                  >
-                    画像ライブラリ
-                  </Link>
-                </li> */}
-                <li>
-                  <Link
-                    href='/graph'
-                    className='block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500'
-                  >
-                    GraphQLブログ
-                  </Link>
-                </li>
+                            md:dark:bg-gray-900 dark:border-gray-700 md:py-1 md:px-6'
+              >
+                {globalMenus.map((menu) => (
+                  <li key={menu.label}>
+                    <Link
+                      href={menu.link}
+                      target={menu.targetBlank ? '_blank' : '_self'}
+                      className='block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500'
+                    >
+                      {menu.label}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
