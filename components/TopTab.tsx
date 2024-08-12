@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Box, Button } from '@yamada-ui/react';
-import { Tabs, Tab, TabPanel } from "@yamada-ui/react"
+import { Tabs, Tab, TabPanel } from '@yamada-ui/react';
 
 type Props = {
   allTags: string[];
@@ -9,57 +9,42 @@ type Props = {
 
 const TopTab = ({ allTags }: Props) => {
   return (
-    <div className='my-3'>
+    <Box className='my-3'>
       <Box sx={{ width: '100%' }}>
-        <Tabs size="md">
+        <Tabs size='sm'>
           <Tab>カテゴリー分け</Tab>
           <Tab>頻出検索ページ</Tab>
-          <TabPanel>
+          <TabPanel className=' mt-2'>
             <Box>
-              <div className='text-2xl'>
+              <Box className='text-2xl'>
                 {allTags.map((tag: string, index: number) => (
                   <Link
                     href={`/tags/${tag}`}
                     key={index}
                     passHref
-                    className='mr-1'
+                    className='px-3 py-1 mr-1 text-lg rounded-xl border text-indigo-600 border-indigo-300 hover:bg-indigo-500 hover:text-white'
                   >
-                    <Button
-                      key={tag}
-                      variant='outline'
-                      colorScheme='link'
-                      mx={'1px'}
-                      mb={1}
-                      fontWeight={"light"}
-                    >
-                      {tag}
-                    </Button>
+                    {tag}
                   </Link>
                 ))}
-              </div>
+              </Box>
             </Box>
           </TabPanel>
           <TabPanel>
             <Box>
-              <div className="[&>a]:text-blue-600 [&>a:visited]:text-purple-600 [&>a:hover]:opacity-75 [&>a:hover]:duration-700 [&>a]:mx-2">
-                <a
-                  href='https://placehold.jp'
-                  target='_blank'
-                >
+              <Box className='[&>a]:text-blue-600 [&>a:visited]:text-purple-600 [&>a:hover]:opacity-75 [&>a:hover]:duration-700 [&>a]:mx-2'>
+                <a href='https://placehold.jp' target='_blank'>
                   placeholder画像
                 </a>
-                <a
-                  href='https://placehold.jp'
-                  target='_blank'
-                >
+                <a href='https://placehold.jp' target='_blank'>
                   縦横中央揃え
                 </a>
-              </div>
+              </Box>
             </Box>
           </TabPanel>
         </Tabs>
       </Box>
-    </div>
+    </Box>
   );
 };
 
