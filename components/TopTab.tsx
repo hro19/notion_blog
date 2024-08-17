@@ -22,7 +22,7 @@ const TopTab = ({ allTags }: Props) => {
                     href={`/tags/${tag}`}
                     key={index}
                     passHref
-                    className='px-3 py-1 mr-1 text-lg rounded-xl border text-indigo-600 border-indigo-300 hover:bg-indigo-500 hover:text-white'
+                    className='inline-block px-3 py-1 mr-1 mb-1 text-lg rounded-xl border text-indigo-600 border-indigo-300 hover:bg-indigo-500 hover:text-white'
                   >
                     {tag}
                   </Link>

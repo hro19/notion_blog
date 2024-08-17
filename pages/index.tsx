@@ -1,9 +1,11 @@
 import { GetStaticProps } from 'next';
+import { useState, useEffect } from 'react';
 import { getAllPosts, getAllTags } from '../lib/notionAPI';
 import SeoHead from '../components/SeoHead';
 import TopPost from '../components/TopPost';
 import TopTab from '../components/TopTab';
 import { Post, PostsProps } from '../ts/Blog';
+import SelectMouth from '@/components/SelectMouth';
 
 export const getStaticProps: GetStaticProps<PostsProps> = async () => {
   const allPosts = await getAllPosts();
@@ -29,6 +31,7 @@ export default function Home({ allPosts, allTags }: PostsProps) {
       <main className='container mx-auto py-4'>
         <div className='px-4 sm:px-6 lg:px-8'>
           <TopTab allTags={allTags} />
+          <SelectMouth allPosts={allPosts} />
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
             {allPosts.map((card: Post) => (
               <TopPost
