@@ -9,7 +9,7 @@ describe('add function', () => {
   });
 
   it('adds a positive and a negative number correctly', () => {
-    expect(add(5, -3)).toBe(2);
+    expect(add(5, -2)).toBe(3);
   });
 
   it('adds two negative numbers correctly', () => {

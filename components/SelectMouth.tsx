@@ -1,29 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Post, PostsProps } from '../ts/Blog';
 import { Select } from '@yamada-ui/react';
+import { generateAvailableMonths } from '@/utils/generateAvailableMonths';
+import { all } from 'axios';
 
 const SelectMouth = ({ allPosts }) => {
   const [availableMonths, setAvailableMonths] = useState<string[]>([]);
   const [selectedMonth, setSelectedMonth] = useState<string>('');
 
   useEffect(() => {
-    const generateAvailableMonths = () => {
-      const monthSet = new Set<string>();
-      allPosts.forEach((post: Post) => {
-        const date = new Date(post.date);
-        const monthString = date.toLocaleString('ja-JP', {
-          year: 'numeric',
-          month: '2-digit',
-        });
-        monthSet.add(monthString);
-      });
-
-      return Array.from(monthSet).sort(
-        (a, b) => new Date(b).getTime() - new Date(a).getTime()
-      );
-    };
-
-    const months = generateAvailableMonths();
+    const months = generateAvailableMonths(allPosts);
     setAvailableMonths(months);
     setSelectedMonth(months[0] || ''); // 最新の月を初期選択
   }, [allPosts]);
