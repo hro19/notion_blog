@@ -9,6 +9,7 @@ const nextConfig = {
       'placehold.jp',
     ],
   },
+  "presets": ['jotai/babel/preset']
 };
 
 module.exports = nextConfig;
