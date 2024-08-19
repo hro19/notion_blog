@@ -26,11 +26,20 @@ export const getStaticProps: GetStaticProps<PostsProps> = async () => {
 
 export default function Home({ allPosts, allTags }: PostsProps) {
   const [resultPosts, setResultPosts] = useAtom(resultPostsAtom);
-  const [searchQueries, setSearchQueries] = useAtom(searchQueriesAtom);
+  const [searchQueries] = useAtom(searchQueriesAtom);
 
   useEffect(() => {
-    setResultPosts(allPosts);
-  }, [allPosts]);
+    if (searchQueries.startMonth === null) {
+      setResultPosts(allPosts);
+      return;
+    }
+
+    const filteredPosts = allPosts.filter((post: Post) => {
+      const postMonth = post.date.substring(0, 7);
+      return postMonth === searchQueries.startMonth;
+    });
+    setResultPosts(filteredPosts);
+  }, [allPosts, searchQueries.startMonth, setResultPosts]);
 
   return (
     <>
@@ -44,17 +53,18 @@ export default function Home({ allPosts, allTags }: PostsProps) {
           <TopTab allTags={allTags} />
           <SelectedStartMonth allPosts={allPosts} />
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
-            {allPosts.map((card: Post) => (
-              <TopPost
-                id={card.id}
-                title={card.title}
-                date={card.date}
-                tags={card.tags}
-                slug={card.slug}
-                thumbnail={card.thumbnail}
-                key={card.id}
-              />
-            ))}
+            {resultPosts &&
+              resultPosts.map((card: Post) => (
+                <TopPost
+                  id={card.id}
+                  title={card.title}
+                  date={card.date}
+                  tags={card.tags}
+                  slug={card.slug}
+                  thumbnail={card.thumbnail}
+                  key={card.id}
+                />
+              ))}
           </div>
         </div>
       </main>
