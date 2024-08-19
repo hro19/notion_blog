@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { generateAvailableMonths } from './generateAvailableMonths'; // 適切なパスに調整してください
-import { Post } from '@/ts/Blog';
 
 describe('generateAvailableMonths', () => {
   it('should return an empty array for empty input', () => {
@@ -9,7 +8,7 @@ describe('generateAvailableMonths', () => {
   });
 
   it('should return unique months in descending order', () => {
-    const posts: Post[] = [
+    const posts: any = [
       { date: '2023-05-15', title: 'Post 1' },
       { date: '2023-04-20', title: 'Post 2' },
       { date: '2023-05-10', title: 'Post 3' },
@@ -21,7 +20,7 @@ describe('generateAvailableMonths', () => {
   });
 
   it('should handle posts from different years', () => {
-    const posts: Post[] = [
+    const posts: any = [
       { date: '2023-12-31', title: 'Post 1' },
       { date: '2024-01-01', title: 'Post 2' },
       { date: '2022-12-31', title: 'Post 3' },
@@ -31,7 +30,7 @@ describe('generateAvailableMonths', () => {
   });
 
   it('should handle posts with same date', () => {
-    const posts: Post[] = [
+    const posts: any = [
       { date: '2023-05-15', title: 'Post 1' },
       { date: '2023-05-15', title: 'Post 2' },
       { date: '2023-05-15', title: 'Post 3' },
@@ -41,7 +40,7 @@ describe('generateAvailableMonths', () => {
   });
 
   it('should ignore time part if present in date string', () => {
-    const posts: Post[] = [
+    const posts: any = [
       { date: '2023-05-15T12:00:00Z', title: 'Post 1' },
       { date: '2023-04-20T15:30:00Z', title: 'Post 2' },
     ];
