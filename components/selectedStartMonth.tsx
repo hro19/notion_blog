@@ -9,6 +9,7 @@ const SelectedStartMonth = ({ allPosts }) => {
 
   useEffect(() => {
     const months = generateAvailableMonths(allPosts);
+    months.sort((a, b) => a.localeCompare(b));
     setAvailableMonths(months);
     if (searchQueries.startMonth === undefined) {
       setSearchQueries((prev) => ({ ...prev, startMonth: null }));

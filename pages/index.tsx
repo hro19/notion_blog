@@ -10,6 +10,7 @@ import SelectedStartMonth from '@/components/selectedStartMonth';
 import { useAtom } from 'jotai';
 import { resultPostsAtom } from '@/stores/postsAtoms';
 import { searchQueriesAtom } from '@/stores/searchQueriesAtoms';
+import { isDateInOrAfterSpecifiedMonth } from '@/utils/isDateAfter';
 
 export const getStaticProps: GetStaticProps<PostsProps> = async () => {
   const allPosts = await getAllPosts();
@@ -35,8 +36,7 @@ export default function Home({ allPosts, allTags }: PostsProps) {
     }
 
     const filteredPosts = allPosts.filter((post: Post) => {
-      const postMonth = post.date.substring(0, 7);
-      return postMonth === searchQueries.startMonth;
+      return isDateInOrAfterSpecifiedMonth(post.date, searchQueries.startMonth);
     });
     setResultPosts(filteredPosts);
   }, [allPosts, searchQueries.startMonth, setResultPosts]);
