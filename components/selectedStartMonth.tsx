@@ -1,18 +1,23 @@
 import React, { useEffect, useState } from 'react';
-import { Post, PostsProps } from '../ts/Blog';
-import { Select } from '@yamada-ui/react';
 import { generateAvailableMonths } from '@/utils/generateAvailableMonths';
-import { all } from 'axios';
+import { useAtom } from 'jotai';
+import { searchQueriesAtom } from '@/stores/searchQueriesAtoms';
 
-const SelectMouth = ({ allPosts }) => {
+const SelectedStartMonth = ({ allPosts }) => {
   const [availableMonths, setAvailableMonths] = useState<string[]>([]);
-  const [selectedMonth, setSelectedMonth] = useState<string>('');
+  const [searchQueries, setSearchQueries] = useAtom(searchQueriesAtom);
 
   useEffect(() => {
     const months = generateAvailableMonths(allPosts);
     setAvailableMonths(months);
-    setSelectedMonth(months[0] || ''); // 最新の月を初期選択
-  }, [allPosts]);
+    if (!searchQueries.startMonth) {
+      setSearchQueries((prev) => ({ ...prev, startMonth: months[0] }));
+    }
+  }, [allPosts, setSearchQueries, searchQueries.startMonth]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSearchQueries((prev) => ({ ...prev, startMonth: e.target.value }));
+  };
 
   return (
     <div className='my-4 relative w-full sm:w-1/2 md:w-1/3 lg:w-1/4'>
@@ -20,12 +25,12 @@ const SelectMouth = ({ allPosts }) => {
         htmlFor='month-select'
         className='block text-sm font-medium text-gray-700 mb-1'
       >
-        月を選択
+        開始月を選択
       </label>
       <select
         id='month-select'
-        value={selectedMonth}
-        onChange={(e) => setSelectedMonth(e.target.value)}
+        value={searchQueries.startMonth || ''}
+        onChange={handleChange}
         className='block w-full px-4 py-2 pr-8 text-base border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none'
       >
         {availableMonths.map((month) => (
@@ -56,4 +61,4 @@ const SelectMouth = ({ allPosts }) => {
   );
 };
 
-export default SelectMouth;
+export default SelectedStartMonth;

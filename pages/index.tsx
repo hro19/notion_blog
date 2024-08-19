@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { GetStaticProps } from 'next';
 import { useState, useEffect } from 'react';
 import { getAllPosts, getAllTags } from '../lib/notionAPI';
@@ -5,7 +6,10 @@ import SeoHead from '../components/SeoHead';
 import TopPost from '../components/TopPost';
 import TopTab from '../components/TopTab';
 import { Post, PostsProps } from '../ts/Blog';
-import SelectMouth from '@/components/SelectMouth';
+import SelectedStartMonth from '@/components/selectedStartMonth';
+import { useAtom } from 'jotai';
+import { resultPostsAtom } from '@/stores/postsAtoms';
+import { searchQueriesAtom } from '@/stores/searchQueriesAtoms';
 
 export const getStaticProps: GetStaticProps<PostsProps> = async () => {
   const allPosts = await getAllPosts();
@@ -21,6 +25,13 @@ export const getStaticProps: GetStaticProps<PostsProps> = async () => {
 };
 
 export default function Home({ allPosts, allTags }: PostsProps) {
+  const [resultPosts, setResultPosts] = useAtom(resultPostsAtom);
+  const [searchQueries, setSearchQueries] = useAtom(searchQueriesAtom);
+
+  useEffect(() => {
+    setResultPosts(allPosts);
+  }, [allPosts]);
+
   return (
     <>
       <SeoHead
@@ -31,7 +42,7 @@ export default function Home({ allPosts, allTags }: PostsProps) {
       <main className='container mx-auto py-4'>
         <div className='px-4 sm:px-6 lg:px-8'>
           <TopTab allTags={allTags} />
-          <SelectMouth allPosts={allPosts} />
+          <SelectedStartMonth allPosts={allPosts} />
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6'>
             {allPosts.map((card: Post) => (
               <TopPost
